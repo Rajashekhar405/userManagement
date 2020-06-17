@@ -1,10 +1,7 @@
 package com.example.demo.controller;
 
-import static org.hamcrest.CoreMatchers.any;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +36,7 @@ public class UserManagementControllerTest {
 		user.setFirstName("abc");
 		user.setLastName("asd");
 		user.setEmail("abc@gmail.com");
-		user.setUserID(123);
+		user.setId(123);
 		user.setAddress("Bangalore");
 		user.setMobileNo("123456789");
 		userList.add(user);
@@ -52,7 +49,7 @@ public class UserManagementControllerTest {
 		user.setFirstName("abc");
 		user.setLastName("asd");
 		user.setEmail("abc@gmail.com");
-		user.setUserID(123);
+		user.setId(123);
 		user.setAddress("Bangalore");
 		user.setMobileNo("123456789");
 		return user;
@@ -63,17 +60,15 @@ public class UserManagementControllerTest {
 	public void testGetAllUserDetails() {
 		List<UserEntity> userlst = dataSetups();
 		doReturn(userlst).when(userService).getAllUserDetails();
-		userController.getAllUserDetails();
+		userController.getAllUserDetails(1);
 		assertEquals("abc", userlst.get(0).getFirstName());
-		//verify(userService, times(1));
 	}
 	
 	@Test
 	public void testCreateUser() {
 		UserEntity userdata = userDataSetups();
 		doReturn(userdata).when(userService).createUser(userEntity);
-		userController.createUser(userEntity);
-		//verify(userService).createUser(userEntity);
+		userController.createUser(1, userEntity);
 		assertEquals("Bangalore", userdata.getAddress());
 	}
 	

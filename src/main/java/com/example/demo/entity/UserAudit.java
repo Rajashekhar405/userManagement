@@ -27,49 +27,39 @@ public class UserAudit implements Serializable{
 	@GeneratedValue
 	private Integer id;
 	private String action;
-	private Date createdDate;
-	private Date updatedDate;
-	
+	private Date actionPerfomedOn;
+	private String userId;
 	public UserAudit() {
 		super();
 	}
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 	public String getAction() {
 		return action;
 	}
-
 	public void setAction(String action) {
 		this.action = action;
 	}
-
-	public Date getCreatedDate() {
-		return createdDate;
+	
+	public Date getActionPerfomedOn() {
+		return actionPerfomedOn;
 	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
+	public void setActionPerfomedOn(Date actionPerfomedOn) {
+		this.actionPerfomedOn = actionPerfomedOn;
 	}
-
-	public Date getUpdatedDate() {
-		return updatedDate;
+	public String getUserId() {
+		return userId;
 	}
-
-	public void setUpdatedDate(Date updatedDate) {
-		this.updatedDate = updatedDate;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-
 	@Override
 	public String toString() {
-		return "UserAudit [id=" + id + ", action=" + action + ", createdDate=" + createdDate + ", updatedDate="
-				+ updatedDate + "]";
+		return "UserAudit [id=" + id + ", action=" + action + ", actionPerfomedDate=" + actionPerfomedOn + ", userId="
+				+ userId + "]";
 	}
-
 }

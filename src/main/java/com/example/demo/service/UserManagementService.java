@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.controller.UserManagementController;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.repository.UserManagementRepository;
 
@@ -44,6 +43,14 @@ public class UserManagementService {
 	
 	public void deleteUser(Integer userId){
 		userManagementRepository.deleteById(userId);
+	}
+
+	public Optional<UserEntity> findById(Integer roleId) {
+		return userManagementRepository.findById(roleId);
+	}
+
+	public List<UserEntity> findByRoleName() {
+		return userManagementRepository.findByUserRole();
 	}
 
 }

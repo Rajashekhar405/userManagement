@@ -29,9 +29,13 @@ public class UserEntity implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USER_ID")
-	private Integer userID;
+	private Integer id;
+	@Column(name = "USER_ROLE")
+	private String userRole;
+	@Column(name = "ROLE_ID")
+	private String roleId;
 	@Column(name = "FIRST_NAME")
 	private String firstName;
 	@Column(name = "LAST_NAME")
@@ -47,15 +51,32 @@ public class UserEntity implements Serializable{
 	
 	public UserEntity() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getUserID() {
-		return userID;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setUserID(Integer userID) {
-		this.userID = userID;
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
+
+	public String getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
 	}
 
 	public String getFirstName() {
@@ -100,8 +121,8 @@ public class UserEntity implements Serializable{
 
 	@Override
 	public String toString() {
-		return "UserEntity [userID=" + userID + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
-				+ email + ", mobileNo=" + mobileNo + ", address=" + address + "]";
+		return "UserEntity [userID=" + id + ", userRole=" + userRole + ", roleId=" + roleId + ", firstName="
+				+ firstName + ", lastName=" + lastName + ", email=" + email + ", mobileNo=" + mobileNo + ", address="
+				+ address + "]";
 	}
-	
 }
