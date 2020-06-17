@@ -3,14 +3,19 @@ package com.example.demo.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.controller.UserManagementController;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.repository.UserManagementRepository;
 
 @Service
 public class UserManagementService {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserManagementService.class);
 	
 	@Autowired
 	private UserManagementRepository userManagementRepository;

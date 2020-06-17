@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.UserAudit;
 import com.example.demo.repository.UserAuditRepository;
+import com.example.demoexception.UserNotFoundException;
 
 @Service
 public class UserAuditService {
@@ -18,7 +19,7 @@ public class UserAuditService {
 	@Autowired
 	private UserAuditRepository  userAuditRepository;
 	
-	public void saveUserAudit(UserAudit userAudit) {
+	public void saveUserAudit(UserAudit userAudit) throws UserNotFoundException {
 		userAuditRepository.save(userAudit);
 	}
 	

@@ -13,6 +13,11 @@ import javax.validation.constraints.Min;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+/**
+ * @author Rajashekhar Badad
+ * @version 1.0
+ * @since 16-06-2020
+ */
 @Entity
 @Table(name="USER_MANAGEMENT")
 @DynamicUpdate(value = true)
